@@ -1,4 +1,4 @@
-#include "MyProject/Public/AuraCharacterBase.h"
+#include "Character/AuraCharacterBase.h"
 
 AAuraCharacterBase::AAuraCharacterBase()
 {
