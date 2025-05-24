@@ -7,7 +7,7 @@
 #include "AuraCharacterBase.generated.h"
 
 UCLASS(Abstract)
-class MYPROJECT_API AAuraCharacterBase : public ACharacter
+class AURA_API AAuraCharacterBase : public ACharacter
 {
 	GENERATED_BODY()
 

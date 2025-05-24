@@ -5,7 +5,7 @@
 #include "AuraPlayerCharacter.generated.h"
 
 UCLASS()
-class MYPROJECT_API AAuraPlayerCharacter : public AAuraCharacterBase
+class AURA_API AAuraPlayerCharacter : public AAuraCharacterBase
 {
 	GENERATED_BODY()
 
