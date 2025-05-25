@@ -10,12 +10,12 @@ AAuraEnemyCharacter::AAuraEnemyCharacter()
 
 void AAuraEnemyCharacter::HighlightActor()
 {
-	
+	bHighlighted = true;	
 }
 
 void AAuraEnemyCharacter::UnhighlightActor()
 {
-	
+	bHighlighted = false;
 }
 
 void AAuraEnemyCharacter::BeginPlay()

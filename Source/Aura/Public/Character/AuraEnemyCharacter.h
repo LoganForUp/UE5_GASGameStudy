@@ -16,6 +16,9 @@ public:
 	virtual void HighlightActor() override;
 	virtual void UnhighlightActor() override;
 
+	UPROPERTY(BlueprintReadOnly)
+	bool bHighlighted = false;
+
 protected:
 	virtual void BeginPlay() override;
 	
