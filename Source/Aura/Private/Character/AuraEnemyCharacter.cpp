@@ -1,14 +1,18 @@
 ﻿#include "Character/AuraEnemyCharacter.h"
 
+#include "AbilitySystem/AuraAbilitySystemComponent.h"
+#include "AbilitySystem/AuraAttributeSet.h"
 #include "Aura/Aura.h"
 
 AAuraEnemyCharacter::AAuraEnemyCharacter()
 {
 	PrimaryActorTick.bCanEverTick = false;
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
-	Weapon = CreateDefaultSubobject<USkeletalMeshComponent>("Weapon");
-	Weapon->SetupAttachment(GetMesh(), FName("WeaponHandSocket"));
-	Weapon->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+	AbilitySystemComponent = CreateDefaultSubobject<UAuraAbilitySystemComponent>("AbilitySystemComponent");
+	AbilitySystemComponent->SetIsReplicated(true);
+
+	AttributeSet = CreateDefaultSubobject<UAuraAttributeSet>("AttributeSet");
 }
 
 void AAuraEnemyCharacter::HighlightActor()
