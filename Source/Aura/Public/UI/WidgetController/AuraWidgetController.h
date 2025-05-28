@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "AbilitySystemComponent.h"
+#include "GameFramework/PlayerController.h"
+#include "AttributeSet.h"
 #include "GameFramework/PlayerState.h"
 #include "UObject/Object.h"
 #include "AuraWidgetController.generated.h"
