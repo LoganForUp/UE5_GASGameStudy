@@ -19,12 +19,16 @@ UOverlayWidgetController* AAuraHUD::GetOverlayWidgetController(const FWidgetCont
 void AAuraHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS)
 {
 	checkf(OverlayWidgetClass, TEXT("Overlay Widget Class uninitialized, please fill out BP_AuraHUD"))
-	checkf(OverlayWidgetControllerClass, TEXT("Overlay Widget Controller Class uninitialized, please fill out BP_AuraHUD"))
-	
+	checkf(OverlayWidgetControllerClass,
+	       TEXT("Overlay Widget Controller Class uninitialized, please fill out BP_AuraHUD"))
+
 	auto Widget = CreateWidget<UUserWidget>(GetWorld(), OverlayWidgetClass);
-	
+	OverlayWidget = Cast<UAuraUserWidget>(Widget);
 
+	const FWidgetControllerParams WidgetControllerParams(PC, PS, ASC, AS);
+	UOverlayWidgetController* OWController = GetOverlayWidgetController(WidgetControllerParams);
+	check(OWController);
+	OverlayWidget->SetWidgetController(OWController);
 
-	
 	Widget->AddToViewport();
 }
