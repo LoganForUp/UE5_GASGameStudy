@@ -66,8 +66,13 @@ public:
 
 	virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
 
-	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
+	virtual void PostAttributeChange(const FGameplayAttribute& Attribute, float OldValue, float NewValue) override;
 
+	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
+private:
+	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const;
+
+public:
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Health, Category = "Vital Attributes")
 	FGameplayAttributeData Health;
 	
@@ -79,7 +84,7 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category = "Vital Attributes")
 	FGameplayAttributeData MaxMana;
-
+	
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Health);
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxHealth);
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Mana);
@@ -93,7 +98,4 @@ public:
 	void OnRep_Mana(const FGameplayAttributeData& OldMana) const;
 	UFUNCTION()
 	void OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const;
-
-private:
-	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const;
 };
